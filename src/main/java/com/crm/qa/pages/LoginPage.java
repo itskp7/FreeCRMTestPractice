@@ -1,5 +1,6 @@
 package com.crm.qa.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,14 +37,14 @@ public class LoginPage extends TestBase{
 		return driver.getTitle();
 	}
 	
-	public boolean validateCrmImage() {
+	public boolean validateCrmImage() {             ////REMEMBER THIS
 		return crmLogo.isDisplayed();
 	}
 	
-	public HomePage login(String un, String pwd) {  /////////This whole stuff how? see test class
+	public HomePage login(String un, String pwd) {  /////////This whole stuff how? see test class  
 		username.sendKeys(un);
 		password.sendKeys(pwd);
-		loginBtn.click();
+		loginBtn.sendKeys(Keys.ENTER);   // was initially .click(); which failed the test bcz was not clickable
 		
 		return new HomePage();
 	}

@@ -12,7 +12,7 @@ import com.crm.qa.pages.LoginPage;
 
 public class LoginPageTest extends TestBase{
 	
-	LoginPage loginpage;
+	LoginPage loginPage;
 	HomePage homePage;
 	
 	public LoginPageTest() {             // created constructor and called super class constructor
@@ -22,22 +22,22 @@ public class LoginPageTest extends TestBase{
 	@BeforeMethod
 	public void setup() {
 		initialization();               // called method from testbase/parent
-		loginpage = new LoginPage();    // created object so that we can use its methods here from that class
+		loginPage = new LoginPage();    // created object so that we can use its methods here from that class
 		
 	}
 	@Test(priority=1)
 	public void loginPageTitleTest() {
-		String title = loginpage.validateLoginPageTitle();
+		String title = loginPage.validateLoginPageTitle();
 		Assert.assertEquals(title, "CRMPRO - CRM software for customer relationship management, sales, and support.");
 	}
 	@Test(priority=2)
 	public void crmLogoTest() {
-		boolean flag = loginpage.validateCrmImage();
+		boolean flag = loginPage.validateCrmImage();
 		Assert.assertTrue(flag);
 	}
 	@Test(priority=3)
 	public void loginTest() {
-		homePage = loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
 	@AfterMethod
